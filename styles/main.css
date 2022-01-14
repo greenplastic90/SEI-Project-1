@@ -1,6 +1,6 @@
 @font-face {
   font-family: Paladins;
-  src: url('/fonts/PaladinsStraight-2a7v.otf') format('opentype');
+  src: url('../fonts/PaladinsStraight-2a7v.otf') format('opentype');
 }
 @keyframes rotation {
   from {
@@ -35,7 +35,7 @@ body {
   font-size: 1rem;
   color: rgb(227, 242, 242);
   /* background-color: rgb(30, 46, 92); */
-  background-image: url(/images/UI-elements/background/blue.jpg);
+  background-image: url(../images/UI-elements/background/blue.jpg);
   background-repeat: space;
   background-position: center;
   background-size: 100%;
@@ -55,7 +55,7 @@ h2 {
 }
 .popup {
   /* border: 1px solid green; */
-  background-image: url(/images/UI-elements/popup/Table_01.png);
+  background-image: url(../images/UI-elements/popup/Table_01.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
@@ -70,7 +70,7 @@ h2 {
 .popup .win-lose-img {
   min-width: 11rem;
   min-height: 2rem;
-  background-image: url(/images/UI-elements/popup/You-Win.png);
+  background-image: url(../images/UI-elements/popup/You-Win.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
@@ -85,7 +85,7 @@ h2 {
 .popup .popup-img {
   width: 3rem;
   height: 3rem;
-  background-image: url('/images/collectable/collectable.png');
+  background-image: url('../images/collectable/collectable.png');
   background-size: 90%;
   background-repeat: no-repeat;
   background-position: center;
@@ -106,7 +106,7 @@ h2 {
 .popup .exit-btn {
   width: 10rem;
   height: 9rem;
-  background-image: url(/images/UI-elements/popup/Exit_BTN.png);
+  background-image: url(../images/UI-elements/popup/Exit_BTN.png);
   background-size: 90%;
   background-repeat: no-repeat;
   background-position: center;
@@ -125,7 +125,7 @@ main {
 .side-pannel {
   /* border: 2px solid red; */
   min-width: 15rem;
-  background-image: url('/images/UI-elements/sidebar/sidebar-bg.png');
+  background-image: url('../images/UI-elements/sidebar/sidebar-bg.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 100%;
@@ -139,7 +139,7 @@ main {
   align-self: center;
 }
 .side-pannel #start-btn {
-  background-image: url(/images/UI-elements/sidebar/Start_BTN.png);
+  background-image: url(../images/UI-elements/sidebar/Start_BTN.png);
   width: 9rem;
   height: 3rem;
   background-repeat: no-repeat;
@@ -192,7 +192,7 @@ main {
   align-items: center;
 }
 .side-pannel .controls-div .controls-shoot .shoot-img {
-  background-image: url('/images/UI-elements/sidebar/controles/Dot_01.png');
+  background-image: url('../images/UI-elements/sidebar/controles/Dot_01.png');
   height: 4rem;
   width: 4rem;
   background-size: 80%;
@@ -208,7 +208,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-image: url('/images/UI-elements/game/Window.png');
+  background-image: url('../images/UI-elements/game/Window.png');
   background-repeat: no-repeat;
   padding: 2.4rem;
   background-position: center;
@@ -244,7 +244,7 @@ sprites
 */
 
 .wall {
-  background-image: url('/images/game-images/star-cluster.gif');
+  background-image: url('../images/game-images/star-cluster.gif');
   background-color: black;
   background-size: 100%;
   background-repeat: no-repeat;
@@ -253,7 +253,7 @@ sprites
   /* box-shadow: 10px 10px 10px 10px rgba(177, 169, 169, 0.9); */
 }
 .missile {
-  background-image: url('/images/game-images/pill.png');
+  background-image: url('../images/game-images/pill.png');
   background-size: 70%;
   background-repeat: no-repeat;
   background-position: center;
@@ -262,14 +262,14 @@ sprites
   opacity: 0.5;
 }
 .powerup {
-  background-image: url('/images/game-images/powerup.png');
+  background-image: url('../images/game-images/powerup.png');
   background-size: 70%;
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .player {
-  background-image: url('/images/Ship_Main_Icon.png');
+  background-image: url('../images/Ship_Main_Icon.png');
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -277,7 +277,7 @@ sprites
 }
 
 .enemy1 {
-  background-image: url('/images/game-images/enemies/1.png');
+  background-image: url('../images/game-images/enemies/1.png');
   background-size: 99%;
   background-repeat: no-repeat;
   background-position: center;
@@ -287,7 +287,7 @@ sprites
   opacity: 0.5;
 }
 .enemy2 {
-  background-image: url('/images/game-images/enemies/2.png');
+  background-image: url('../images/game-images/enemies/2.png');
   background-size: 99%;
   background-repeat: no-repeat;
   background-position: center;
@@ -297,7 +297,7 @@ sprites
   opacity: 0.5;
 }
 .enemy3 {
-  background-image: url('/images/game-images/enemies/3.png');
+  background-image: url('../images/game-images/enemies/3.png');
   background-size: 99%;
   background-repeat: no-repeat;
   background-position: center;
@@ -307,7 +307,7 @@ sprites
   opacity: 0.5;
 }
 .enemy4 {
-  background-image: url('/images/game-images/enemies/4.png');
+  background-image: url('../images/game-images/enemies/4.png');
   background-size: 99%;
   background-repeat: no-repeat;
   background-position: center;
@@ -317,7 +317,7 @@ sprites
   opacity: 0.5;
 }
 .enemy5 {
-  background-image: url('/images/game-images/enemies/5.png');
+  background-image: url('../images/game-images/enemies/5.png');
   background-size: 99%;
   background-repeat: no-repeat;
   background-position: center;
@@ -328,7 +328,7 @@ sprites
 }
 
 .collectable {
-  background-image: url('/images/collectable/collectable.png');
+  background-image: url('../images/collectable/collectable.png');
   background-size: 90%;
   background-repeat: no-repeat;
   background-position: center;
@@ -338,7 +338,7 @@ sprites
   opacity: 0.5;
 }
 .explosion {
-  background-image: url('/images/explosions/3.gif');
+  background-image: url('../images/explosions/3.gif');
   background-size: 99%;
   background-repeat: no-repeat;
   background-position: center;

@@ -18,7 +18,7 @@ const init = () => {
   const victoryAudio = document.querySelector('#victory')
   const backgroundAudio = document.querySelector('#background-music')
   const allAudioTags = document.querySelectorAll('audio')
-  // allAudioTags.forEach((audioTag) => (audioTag.volume = 0.05))
+  allAudioTags.forEach((audioTag) => (audioTag.volume = 0.05))
 
   // console.log('score ->', htmlTime)
   let animateSky
@@ -109,7 +109,7 @@ const init = () => {
       } else {
         const randomSound = Math.floor(Math.random() * 4)
 
-        shotsAudio.src = `/audio/shoot/Laser_Shoot${randomSound}.wav`
+        shotsAudio.src = `audio/shoot/Laser_Shoot${randomSound}.wav`
         // shotsAudio.volume = 0.3
         shotsAudio.play()
         if (
@@ -691,7 +691,7 @@ const init = () => {
   const animateExplosion = (position) => {
     const randomSound = Math.floor(Math.random() * 5)
 
-    explosionAudio.src = `/audio/explosions/Explosion${randomSound}.wav`
+    explosionAudio.src = `audio/explosions/Explosion${randomSound}.wav`
     // explosionAudio.volume = 0.3
     explosionAudio.play()
 
@@ -707,7 +707,7 @@ const init = () => {
     grid.style.display = 'grid'
   }
   const victory = () => {
-    victoryAudio.src = '/audio/cheer.wav'
+    victoryAudio.src = 'audio/cheer.wav'
     victoryAudio.play()
     popupDiv.style.display = 'flex'
     removeFromGrid(player.currentPosition, player.cssClass)
@@ -715,7 +715,7 @@ const init = () => {
     player = null
   }
   const deathAnimation = () => {
-    lose.src = '/audio/piano-gameover.wav'
+    lose.src = 'audio/piano-gameover.wav'
     lose.play()
     setTimeout(() => (popupDiv.style.display = 'flex'), 1000 * 1.5)
     //set a rotation animation on every cell that doesn't have a wall
@@ -787,9 +787,9 @@ const init = () => {
     firstCollectable = true
     isWinner
       ? (winLoseImage.style.backgroundImage =
-          'url(/images/UI-elements/popup/You-Win.png)')
+          'url(images/UI-elements/popup/You-Win.png)')
       : (winLoseImage.style.backgroundImage =
-          'url(/images/UI-elements/popup/You-Lose.png)')
+          'url(images/UI-elements/popup/You-Lose.png)')
     isWinner ? victory() : deathAnimation()
   }
   const createCollectables = () => {
@@ -980,7 +980,7 @@ const init = () => {
       cells[player.currentPosition].classList.contains(levelBuildingBlocks[4])
     ) {
       removeFromGrid(player.currentPosition, levelBuildingBlocks[4])
-      collectAudio.src = '/audio/collect.wav'
+      collectAudio.src = 'audio/collect.wav'
       collectAudio.play()
       collectables.pop(0)
       collectablesCollected++
@@ -1046,12 +1046,13 @@ const init = () => {
 
     // change player facing direction
   }
-  backgroundAudio.loop = true
+
   const backgroundMusic = () => {
     // hard coding src into html made it so that it doesn't start over every time I hit start
-    // backgroundAudio.src = '/audio/RhytmicBounceA.mp3'
+    // backgroundAudio.src = 'audio/RhytmicBounceA.mp3'
 
     // backgroundAudio.volume = 0.05
+    backgroundAudio.loop = true
     backgroundAudio.play()
   }
   // * Start Game
