@@ -1,0 +1,346 @@
+@font-face {
+  font-family: Paladins;
+  src: url('/fonts/PaladinsStraight-2a7v.otf') format('opentype');
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+@-webkit-keyframes pulsate {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+.pulsate {
+  -webkit-animation: pulsate 3s ease-out;
+  -webkit-animation-iteration-count: infinite;
+  opacity: 0.5;
+}
+body {
+  font-family: Paladins;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  font-size: 1rem;
+  color: rgb(227, 242, 242);
+  /* background-color: rgb(30, 46, 92); */
+  background-image: url(/images/UI-elements/background/blue.jpg);
+  background-repeat: space;
+  background-position: center;
+  background-size: 100%;
+}
+h2 {
+}
+.updated-from-JS {
+  font-size: 1.5rem;
+  /* color: rgb(222, 255, 255); */
+}
+.container {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.popup {
+  /* border: 1px solid green; */
+  background-image: url(/images/UI-elements/popup/Table_01.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  height: 40rem;
+  width: 20rem;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 7rem;
+}
+
+.popup .win-lose-img {
+  min-width: 11rem;
+  min-height: 2rem;
+  background-image: url(/images/UI-elements/popup/You-Win.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  margin: 7rem 0 4rem 0;
+}
+.popup .popup-collected-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.1rem 0;
+}
+.popup .popup-img {
+  width: 3rem;
+  height: 3rem;
+  background-image: url('/images/collectable/collectable.png');
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: rotation 20s infinite linear;
+  /* margin-bottom: -0.5rem; */
+}
+.popup .popup-collected-div .collectables-collected {
+  border-bottom: 5px solid rgb(159, 223, 220);
+}
+.popup .score-p {
+  /* margin-top: 1.5rem; */
+  border-bottom: 5px solid rgb(159, 223, 220);
+}
+.popup .high-score-p {
+  /* margin-top: 4.2rem; */
+  border-bottom: 5px solid rgb(159, 223, 220);
+}
+.popup .exit-btn {
+  width: 10rem;
+  height: 9rem;
+  background-image: url(/images/UI-elements/popup/Exit_BTN.png);
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+}
+
+main {
+  /* border: 5px solid blue; */
+  display: flex;
+  justify-content: center;
+}
+.sides {
+  margin: 1rem;
+}
+
+.side-pannel {
+  /* border: 2px solid red; */
+  min-width: 15rem;
+  background-image: url('/images/UI-elements/sidebar/sidebar-bg.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.side-pannel .side-logo {
+  max-width: 20rem;
+  padding: 2rem;
+  align-self: center;
+}
+.side-pannel #start-btn {
+  background-image: url(/images/UI-elements/sidebar/Start_BTN.png);
+  width: 9rem;
+  height: 3rem;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  align-self: center;
+}
+.side-pannel #start-btn:hover {
+  cursor: pointer;
+}
+
+.side-pannel .collectables-div {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.side-pannel .collectables-div .collectables-required {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 5px solid rgb(159, 223, 220);
+}
+.side-pannel .collectables-div #collect-h2 {
+  margin-bottom: -0.1rem;
+  align-self: center;
+}
+
+.side-pannel .collectables-div .collectables-required img {
+  max-width: 4rem;
+  margin-bottom: 1rem;
+  animation: rotation 20s infinite linear;
+}
+.side-pannel .collectables-div .collectables-collected {
+  align-self: center;
+  margin-top: -0.75rem;
+}
+
+.side-pannel .controls-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.side-pannel .controls-div .control-imgs {
+  width: 3rem;
+}
+.side-pannel .controls-div .controls-shoot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.side-pannel .controls-div .controls-shoot .shoot-img {
+  background-image: url('/images/UI-elements/sidebar/controles/Dot_01.png');
+  height: 4rem;
+  width: 4rem;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+  font-size: 1.75rem;
+  padding: 0 0 1rem 2rem;
+}
+
+.game-div {
+  width: 780px;
+  height: 780px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url('/images/UI-elements/game/Window.png');
+  background-repeat: no-repeat;
+  padding: 2.4rem;
+  background-position: center;
+  background-size: 100% 100%;
+}
+
+#grid {
+  display: grid;
+  grid-template-columns: repeat(18, auto);
+  grid-template-rows: repeat(18, auto);
+  /* box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2); */
+  height: 100%;
+  height: 700px;
+  width: 700px;
+  background: rgb(2, 0, 36);
+  background: radial-gradient(
+    circle,
+    rgb(0, 0, 0) 0%,
+    rgb(166, 34, 3, 0) 13%,
+    rgb(37, 65, 70) 100%
+  );
+  margin-top: 5rem;
+}
+
+#grid div {
+  /* border: 1px solid rgb(0, 0, 0); */
+  height: 100%;
+  width: 100%;
+}
+
+/*
+sprites
+*/
+
+.wall {
+  background-image: url('/images/game-images/star-cluster.gif');
+  background-color: black;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(0deg);
+  /* box-shadow: 10px 10px 10px 10px rgba(177, 169, 169, 0.9); */
+}
+.missile {
+  background-image: url('/images/game-images/pill.png');
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center;
+  -webkit-animation: pulsate 3s ease-out;
+  -webkit-animation-iteration-count: infinite;
+  opacity: 0.5;
+}
+.powerup {
+  background-image: url('/images/game-images/powerup.png');
+  background-size: 70%;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.player {
+  background-image: url('/images/Ship_Main_Icon.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(0deg);
+}
+
+.enemy1 {
+  background-image: url('/images/game-images/enemies/1.png');
+  background-size: 99%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(0deg);
+  -webkit-animation: pulsate 3s ease-out;
+  -webkit-animation-iteration-count: infinite;
+  opacity: 0.5;
+}
+.enemy2 {
+  background-image: url('/images/game-images/enemies/2.png');
+  background-size: 99%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(0deg);
+  -webkit-animation: pulsate 3s ease-out;
+  -webkit-animation-iteration-count: infinite;
+  opacity: 0.5;
+}
+.enemy3 {
+  background-image: url('/images/game-images/enemies/3.png');
+  background-size: 99%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(0deg);
+  -webkit-animation: pulsate 3s ease-out;
+  -webkit-animation-iteration-count: infinite;
+  opacity: 0.5;
+}
+.enemy4 {
+  background-image: url('/images/game-images/enemies/4.png');
+  background-size: 99%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(0deg);
+  -webkit-animation: pulsate 3s ease-out;
+  -webkit-animation-iteration-count: infinite;
+  opacity: 0.5;
+}
+.enemy5 {
+  background-image: url('/images/game-images/enemies/5.png');
+  background-size: 99%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(0deg);
+  -webkit-animation: pulsate 3s ease-out;
+  -webkit-animation-iteration-count: infinite;
+  opacity: 0.5;
+}
+
+.collectable {
+  background-image: url('/images/collectable/collectable.png');
+  background-size: 90%;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: rotation 20s infinite linear;
+  -webkit-animation: pulsate 3s ease-out;
+  -webkit-animation-iteration-count: infinite;
+  opacity: 0.5;
+}
+.explosion {
+  background-image: url('/images/explosions/3.gif');
+  background-size: 99%;
+  background-repeat: no-repeat;
+  background-position: center;
+  transform: rotate(0deg);
+}

@@ -1,0 +1,103 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="/scripts/app.js"></script>
+    <link rel="stylesheet" href="/styles/main.css" />
+  </head>
+  <body>
+    <!-- container -->
+    <div class="container">
+      <!-- main -->
+      <main>
+        <!-- game-div -->
+        <div class="sides game-div">
+          <section class="popup">
+            <div class="win-lose-img"></div>
+            <div class="popup-collected-div">
+              <div class="popup-img"></div>
+              <p class="collectables-collected">
+                Collected <span class="collectables updated-from-JS"></span>
+              </p>
+            </div>
+            <p class="score-p">
+              Score <span class="score updated-from-JS"></span>
+            </p>
+            <p class="high-score-p">
+              High Score <span class="high-score updated-from-JS"></span>
+            </p>
+            <div class="exit-btn"></div>
+          </section>
+          <!-- .grid -->
+          <div id="grid"></div>
+        </div>
+
+        <!-- .side-pannel -->
+        <div class="sides side-pannel">
+          <!-- img logo -->
+          <img
+            class="side-logo"
+            src="/images/UI-elements/sidebar/logo.png"
+            alt="spacegame-logo"
+          />
+          <!-- Start Button -->
+          <div id="start-btn"></div>
+          <div class="collectables-div">
+            <h2 id="collect-h2">Collect</h2>
+            <div class="collectables-required">
+              <img src="/images/collectable/collectable.png" alt="collectabe" />
+              <p class="sidebar-text">
+                X <span class="to-win updated-from-JS"></span>
+              </p>
+            </div>
+            <p class="collectables-collected">
+              Collected <span class="collectables updated-from-JS"></span>
+            </p>
+          </div>
+          <!-- p score with span .score -->
+          <p>Score</p>
+          <p class="score updated-from-JS"></p>
+          <p>High Score</p>
+          <p class="high-score updated-from-JS"></p>
+
+          <!-- p controls - img WASD -->
+          <div class="controls-div">
+            <h2>Controles</h2>
+            <img
+              src="/images/UI-elements/sidebar/controles/up.png"
+              alt="up"
+              class="control-imgs"
+            />
+            <div>
+              <img
+                src="/images/UI-elements/sidebar/controles/left.png"
+                alt="left"
+                class="control-imgs"
+              /><img
+                src="/images/UI-elements/sidebar/controles/down.png"
+                alt="down"
+                class="control-imgs"
+              /><img
+                src="/images/UI-elements/sidebar/controles/right.png"
+                alt="right"
+                class="control-imgs"
+              />
+            </div>
+            <div class="controls-shoot">
+              <p>Shoot</p>
+              <div class="shoot-img"><p>S</p></div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <audio id="shots" src=""</audio>
+    <audio id="lose" src=""</audio>
+    <audio id="collect" src=""</audio>
+    <audio id="explosion" src=""</audio>
+    <audio id="victory" src=""</audio>
+    <audio id="background-music" src="/audio/RhytmicBounceA.mp3"</audio>
+  </body>
+</html>
