@@ -101,7 +101,7 @@ const init = () => {
       this.movementInterval
     }
     shoot() {
-      // checks if a missile is already on the board
+      // checks if a missile is already on the board, I don't want the player to be able to have more than one missile deployed
       const isMissileAlreadyDeployed = cells.some((cell) =>
         cell.classList.contains(levelBuildingBlock.projectile)
       )
@@ -109,9 +109,7 @@ const init = () => {
         // don't shoot!
       } else {
         const randomSound = Math.floor(Math.random() * 4)
-
         shotsAudio.src = `audio/shoot/Laser_Shoot${randomSound}.wav`
-        // shotsAudio.volume = 0.3
         shotsAudio.play()
         if (
           this.playerFacingDirection === 'up' &&
@@ -846,8 +844,8 @@ const init = () => {
     while (enemies.length < updatedNumberOfEnemies) {
       const enemiesArr = levelBuildingBlock.enemy
       const randomEnemyIndex = Math.floor(Math.random() * enemiesArr.length)
-      let randomPositionIndex = Math.floor(Math.random() * cells.length)
       const enemyCssClass = enemiesArr[randomEnemyIndex]
+      let randomPositionIndex = Math.floor(Math.random() * cells.length)
 
       // enemies don't spawn within walls, in the same location as other enimes or players location (as well as withing two blocks near the player)
       while (
