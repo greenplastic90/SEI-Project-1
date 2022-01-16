@@ -45,10 +45,18 @@ const init = () => {
     [],
     'collectable'
   ]
+  const levelBuildingBlock = {
+    barrier: 'wall',
+    projectile: 'missile',
+    explosion: 'explosion',
+    enemy: [],
+    collectable: 'collectable'
+  }
+
   // populate levelbuldingblocks[3] with enemy css classes i've create in main.css
   for (let i = 1; i <= 5; i++) {
     const enemyCssClass = `enemy${i}`
-    levelBuildingBlocks[3].push(enemyCssClass)
+    levelBuildingBlock.enemy.push(enemyCssClass)
   }
 
   const facing = [
@@ -102,7 +110,7 @@ const init = () => {
     shoot() {
       // checks if a missile is already on the board
       const isMissileAlreadyDeployed = cells.some((cell) =>
-        cell.classList.contains(levelBuildingBlocks[1])
+        cell.classList.contains(levelBuildingBlock.projectile)
       )
       if (isMissileAlreadyDeployed) {
         // don't shoot!
@@ -115,7 +123,7 @@ const init = () => {
         if (
           this.playerFacingDirection === 'up' &&
           !cells[player.currentPosition - width].classList.contains(
-            levelBuildingBlocks[0]
+            levelBuildingBlock.barrier
           )
         ) {
           this.position = this.playerPosition - width
@@ -124,7 +132,7 @@ const init = () => {
         } else if (
           this.playerFacingDirection === 'right' &&
           !cells[player.currentPosition + 1].classList.contains(
-            levelBuildingBlocks[0]
+            levelBuildingBlock.barrier
           )
         ) {
           this.position = this.playerPosition + 1
@@ -133,7 +141,7 @@ const init = () => {
         } else if (
           this.playerFacingDirection === 'down' &&
           !cells[player.currentPosition + width].classList.contains(
-            levelBuildingBlocks[0]
+            levelBuildingBlock.barrier
           )
         ) {
           this.position = this.playerPosition + width
@@ -142,7 +150,7 @@ const init = () => {
         } else if (
           this.playerFacingDirection === 'left' &&
           !cells[player.currentPosition - 1].classList.contains(
-            levelBuildingBlocks[0]
+            levelBuildingBlock.barrier
           )
         ) {
           this.position = this.playerPosition - 1
@@ -154,28 +162,32 @@ const init = () => {
     movement() {
       if (
         this.playerFacingDirection === 'up' &&
-        !cells[this.position - width].classList.contains(levelBuildingBlocks[0])
+        !cells[this.position - width].classList.contains(
+          levelBuildingBlock.barrier
+        )
       ) {
         removeFromGrid(this.position, this.cssClass)
         this.position -= width
         addToGrid(this.position, this.cssClass)
       } else if (
         this.playerFacingDirection === 'right' &&
-        !cells[this.position + 1].classList.contains(levelBuildingBlocks[0])
+        !cells[this.position + 1].classList.contains(levelBuildingBlock.barrier)
       ) {
         removeFromGrid(this.position, this.cssClass)
         this.position += 1
         addToGrid(this.position, this.cssClass)
       } else if (
         this.playerFacingDirection === 'down' &&
-        !cells[this.position + width].classList.contains(levelBuildingBlocks[0])
+        !cells[this.position + width].classList.contains(
+          levelBuildingBlock.barrier
+        )
       ) {
         removeFromGrid(this.position, this.cssClass)
         this.position += width
         addToGrid(this.position, this.cssClass)
       } else if (
         this.playerFacingDirection === 'left' &&
-        !cells[this.position - 1].classList.contains(levelBuildingBlocks[0])
+        !cells[this.position - 1].classList.contains(levelBuildingBlock.barrier)
       ) {
         removeFromGrid(this.position, this.cssClass)
         this.position -= 1
@@ -229,12 +241,14 @@ const init = () => {
       if (
         this.directions[this.directionIndex].direction === 'up' &&
         !cells[this.indexToMoveInto].classList.contains(
-          levelBuildingBlocks[0]
+          levelBuildingBlock.barrier
         ) &&
-        !levelBuildingBlocks[3].some((cssClass) => {
+        !levelBuildingBlock.enemy.some((cssClass) => {
           cells[this.indexToMoveInto].classList.contains(cssClass)
         }) &&
-        !cells[this.indexToMoveInto].classList.contains(levelBuildingBlocks[4])
+        !cells[this.indexToMoveInto].classList.contains(
+          levelBuildingBlock.collectable
+        )
       ) {
         this.previousPosition = this.currentPosition
         removeFromGrid(this.currentPosition, this.cssClass)
@@ -244,12 +258,14 @@ const init = () => {
       } else if (
         this.directions[this.directionIndex].direction === 'right' &&
         !cells[this.indexToMoveInto].classList.contains(
-          levelBuildingBlocks[0]
+          levelBuildingBlock.barrier
         ) &&
-        !levelBuildingBlocks[3].some((cssClass) =>
+        !levelBuildingBlock.enemy.some((cssClass) =>
           cells[this.indexToMoveInto].classList.contains(cssClass)
         ) &&
-        !cells[this.indexToMoveInto].classList.contains(levelBuildingBlocks[4])
+        !cells[this.indexToMoveInto].classList.contains(
+          levelBuildingBlock.collectable
+        )
       ) {
         this.previousPosition = this.currentPosition
         removeFromGrid(this.currentPosition, this.cssClass)
@@ -259,12 +275,14 @@ const init = () => {
       } else if (
         this.directions[this.directionIndex].direction === 'down' &&
         !cells[this.indexToMoveInto].classList.contains(
-          levelBuildingBlocks[0]
+          levelBuildingBlock.barrier
         ) &&
-        !levelBuildingBlocks[3].some((cssClass) =>
+        !levelBuildingBlock.enemy.some((cssClass) =>
           cells[this.indexToMoveInto].classList.contains(cssClass)
         ) &&
-        !cells[this.indexToMoveInto].classList.contains(levelBuildingBlocks[4])
+        !cells[this.indexToMoveInto].classList.contains(
+          levelBuildingBlock.collectable
+        )
       ) {
         this.previousPosition = this.currentPosition
         removeFromGrid(this.currentPosition, this.cssClass)
@@ -274,12 +292,14 @@ const init = () => {
       } else if (
         this.directions[this.directionIndex].direction === 'left' &&
         !cells[this.indexToMoveInto].classList.contains(
-          levelBuildingBlocks[0]
+          levelBuildingBlock.barrier
         ) &&
-        !levelBuildingBlocks[3].some((cssClass) =>
+        !levelBuildingBlock.enemy.some((cssClass) =>
           cells[this.indexToMoveInto].classList.contains(cssClass)
         ) &&
-        !cells[this.indexToMoveInto].classList.contains(levelBuildingBlocks[4])
+        !cells[this.indexToMoveInto].classList.contains(
+          levelBuildingBlock.collectable
+        )
       ) {
         this.previousPosition = this.currentPosition
         removeFromGrid(this.currentPosition, this.cssClass)
@@ -300,7 +320,9 @@ const init = () => {
 
       // check that the box picked to move into isn't a wall
       while (
-        cells[this.indexToMoveInto].classList.contains(levelBuildingBlocks[0])
+        cells[this.indexToMoveInto].classList.contains(
+          levelBuildingBlock.barrier
+        )
       ) {
         this.directionIndex = Math.floor(Math.random() * this.directions.length)
         this.indexToMoveInto =
@@ -695,9 +717,9 @@ const init = () => {
     // explosionAudio.volume = 0.3
     explosionAudio.play()
 
-    addToGrid(position, levelBuildingBlocks[2])
+    addToGrid(position, levelBuildingBlock.explosion)
     setTimeout(
-      () => removeFromGrid(position, levelBuildingBlocks[2]),
+      () => removeFromGrid(position, levelBuildingBlock.explosion),
       1000 * 0.75
     )
   }
@@ -721,7 +743,7 @@ const init = () => {
     //set a rotation animation on every cell that doesn't have a wall
 
     cells.forEach((cell) =>
-      cell.classList.contains(levelBuildingBlocks[0])
+      cell.classList.contains(levelBuildingBlock.barrier)
         ? null
         : (cell.style.animation = 'rotation 1s infinite linear')
     )
@@ -742,7 +764,7 @@ const init = () => {
     animateSky = setInterval(() => {
       const rotationArr = ['0', '90', '180', '270']
       cells.forEach((cell) => {
-        if (cell.classList.contains(levelBuildingBlocks[0])) {
+        if (cell.classList.contains(levelBuildingBlock.barrier)) {
           const randomIndex = Math.floor(Math.random() * rotationArr.length)
           cell.style.transform = `rotate(${rotationArr[randomIndex]}deg)`
         }
@@ -804,36 +826,42 @@ const init = () => {
       // dont spawn a collectable on walls, player, enemies or collectables
 
       while (
-        cells[randomPositionIndex].classList.contains(levelBuildingBlocks[0]) ||
+        cells[randomPositionIndex].classList.contains(
+          levelBuildingBlock.barrier
+        ) ||
         cells[randomPositionIndex].classList.contains(player.cssClass) ||
-        cells[randomPositionIndex].classList.contains(levelBuildingBlocks[4]) ||
-        levelBuildingBlocks[3].some((enemy) =>
+        cells[randomPositionIndex].classList.contains(
+          levelBuildingBlock.collectable
+        ) ||
+        levelBuildingBlock.enemy.some((enemy) =>
           cells[randomPositionIndex].classList.contains(enemy)
         )
       ) {
         randomPositionIndex = Math.floor(Math.random() * cells.length)
       }
       const collectable = new Collectable(
-        levelBuildingBlocks[4],
+        levelBuildingBlock.collectable,
         randomPositionIndex
       )
       collectables.push(collectable)
-      addToGrid(collectable.position, levelBuildingBlocks[4])
+      addToGrid(collectable.position, levelBuildingBlock.collectable)
       // check winning condition
     }
   }
   const createEnemies = () => {
     // controls max number of enimes on the board - everytime an enemy is killed two spawns in its place
     while (enemies.length < updatedNumberOfEnemies) {
-      const enemiesArr = levelBuildingBlocks[3]
+      const enemiesArr = levelBuildingBlock.enemy
       const randomEnemyIndex = Math.floor(Math.random() * enemiesArr.length)
       let randomPositionIndex = Math.floor(Math.random() * cells.length)
       const enemyCssClass = enemiesArr[randomEnemyIndex]
 
       // enemies don't spawn within walls, in the same location as other enimes or players location (as well as withing two blocks near the player)
       while (
-        cells[randomPositionIndex].classList.contains(levelBuildingBlocks[0]) ||
-        levelBuildingBlocks[3].some((enemy) =>
+        cells[randomPositionIndex].classList.contains(
+          levelBuildingBlock.barrier
+        ) ||
+        levelBuildingBlock.enemy.some((enemy) =>
           cells[randomPositionIndex].classList.contains(enemy)
         ) ||
         cells[randomPositionIndex].classList.contains(player.cssClass) ||
@@ -876,7 +904,7 @@ const init = () => {
       const randomIndex = Math.floor(Math.random() * rotationArr.length)
 
       if (levelArray[i] === 0) {
-        cell.classList.add(levelBuildingBlocks[0])
+        cell.classList.add(levelBuildingBlock.barrier)
         cell.style.transform = `rotate(${rotationArr[randomIndex]}deg)`
       }
 
@@ -916,7 +944,7 @@ const init = () => {
       // * Up *
       key === up &&
       !cells[player.currentPosition - 18].classList.contains(
-        levelBuildingBlocks[0]
+        levelBuildingBlock.barrier
       )
     ) {
       removeFromGrid(player.currentPosition, player.cssClass)
@@ -927,7 +955,7 @@ const init = () => {
       // * Right *
       (key === right &&
         !cells[player.currentPosition + 1].classList.contains(
-          levelBuildingBlocks[0]
+          levelBuildingBlock.barrier
         )) ||
       (key === right && player.currentPosition % width === width - 1)
     ) {
@@ -941,7 +969,7 @@ const init = () => {
       // * Down *
       key === down &&
       !cells[player.currentPosition + 18].classList.contains(
-        levelBuildingBlocks[0]
+        levelBuildingBlock.barrier
       )
     ) {
       removeFromGrid(player.currentPosition, player.cssClass)
@@ -952,7 +980,7 @@ const init = () => {
       // * Left *
       (key === left &&
         !cells[player.currentPosition - 1].classList.contains(
-          levelBuildingBlocks[0]
+          levelBuildingBlock.barrier
         )) ||
       (key === left && player.currentPosition % width === 0)
     ) {
@@ -966,7 +994,7 @@ const init = () => {
       const missile = new Missile(
         player.currentPosition,
         player.isFacing.direction,
-        levelBuildingBlocks[1]
+        levelBuildingBlock.projectile
       )
       missiles.push(missile)
       missile.shoot()
@@ -977,9 +1005,11 @@ const init = () => {
 
   const playerInteraction = () => {
     if (
-      cells[player.currentPosition].classList.contains(levelBuildingBlocks[4])
+      cells[player.currentPosition].classList.contains(
+        levelBuildingBlock.collectable
+      )
     ) {
-      removeFromGrid(player.currentPosition, levelBuildingBlocks[4])
+      removeFromGrid(player.currentPosition, levelBuildingBlock.collectable)
       collectAudio.src = 'audio/collect.wav'
       collectAudio.play()
       collectables.pop(0)
@@ -1002,18 +1032,21 @@ const init = () => {
     // as i type this.. I'm thinking maybe the loop though the cells part is redundent and i could just keep checking if at any point both enemy position and class postion are same. (will fix during refactoring)
     cells.filter((cell) => {
       if (
-        cell.classList.contains(levelBuildingBlocks[1]) &&
-        levelBuildingBlocks[3].some((cssClass) =>
+        cell.classList.contains(levelBuildingBlock.projectile) &&
+        levelBuildingBlock.enemy.some((cssClass) =>
           cell.classList.contains(cssClass)
         )
       ) {
         enemies.forEach((enemy) => {
           missiles.forEach((missile) => {
             if (enemy.currentPosition === missile.position) {
-              addToGrid(enemy.currentPosition, levelBuildingBlocks[2])
+              addToGrid(enemy.currentPosition, levelBuildingBlock.explosion)
               setTimeout(
                 () =>
-                  removeFromGrid(enemy.currentPosition, levelBuildingBlocks[2]),
+                  removeFromGrid(
+                    enemy.currentPosition,
+                    levelBuildingBlock.explosion
+                  ),
                 1000
               )
 
