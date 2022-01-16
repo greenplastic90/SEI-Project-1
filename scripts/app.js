@@ -38,13 +38,6 @@ const init = () => {
   const cellCount = width * width
   const cells = []
 
-  const levelBuildingBlocks = [
-    'wall',
-    'missile',
-    'explosion',
-    [],
-    'collectable'
-  ]
   const levelBuildingBlock = {
     barrier: 'wall',
     projectile: 'missile',
@@ -231,9 +224,9 @@ const init = () => {
       this.indexToMoveInto
       this.directionIndex
       this.directions = [
-        {position: -18, direction: 'up', rotate: 'rotate(90deg) scaleX(-1)'},
+        {position: -width, direction: 'up', rotate: 'rotate(90deg) scaleX(-1)'},
         {position: +1, direction: 'right', rotate: 'rotate(0deg)'},
-        {position: +18, direction: 'down', rotate: 'rotate(90deg)'},
+        {position: +width, direction: 'down', rotate: 'rotate(90deg)'},
         {position: -1, direction: 'left', rotate: 'scaleX(-1)'}
       ]
     }
@@ -254,7 +247,7 @@ const init = () => {
         removeFromGrid(this.currentPosition, this.cssClass)
         this.currentPosition = this.indexToMoveInto
         addToGrid(this.currentPosition, this.cssClass)
-        this.indexToMoveInto -= 18
+        this.indexToMoveInto -= width
       } else if (
         this.directions[this.directionIndex].direction === 'right' &&
         !cells[this.indexToMoveInto].classList.contains(
@@ -288,7 +281,7 @@ const init = () => {
         removeFromGrid(this.currentPosition, this.cssClass)
         this.currentPosition = this.indexToMoveInto
         addToGrid(this.currentPosition, this.cssClass)
-        this.indexToMoveInto += 18
+        this.indexToMoveInto += width
       } else if (
         this.directions[this.directionIndex].direction === 'left' &&
         !cells[this.indexToMoveInto].classList.contains(
@@ -943,13 +936,13 @@ const init = () => {
     if (
       // * Up *
       key === up &&
-      !cells[player.currentPosition - 18].classList.contains(
+      !cells[player.currentPosition - width].classList.contains(
         levelBuildingBlock.barrier
       )
     ) {
       removeFromGrid(player.currentPosition, player.cssClass)
       player.previousPosition = player.currentPosition
-      player.currentPosition -= 18
+      player.currentPosition -= width
       addToGrid(player.currentPosition, player.cssClass)
     } else if (
       // * Right *
@@ -968,13 +961,13 @@ const init = () => {
     } else if (
       // * Down *
       key === down &&
-      !cells[player.currentPosition + 18].classList.contains(
+      !cells[player.currentPosition + width].classList.contains(
         levelBuildingBlock.barrier
       )
     ) {
       removeFromGrid(player.currentPosition, player.cssClass)
       player.previousPosition = player.currentPosition
-      player.currentPosition += 18
+      player.currentPosition += width
       addToGrid(player.currentPosition, player.cssClass)
     } else if (
       // * Left *
