@@ -2,9 +2,8 @@
 # SPACE GAME - GA Project One - 7 Days 
  
 This game was created for General Assembly’s project one. It was a solo project where we were tasked to build a game using what we have learned so far. I decided to build a Pacman clone first, hence the layout of the game. Once the pacman MVP was met, I realized I had more time to challenge myself even further. I decided Pacman could shoot bullets in different directions instead of just moving around the map, which led to me adding more enemies on the board to balance against Pacman’s new found ability! That's how SPACE GAME was born!
- 
-![The Game](https://i.imgur.com/ucCshlm.png)
- 
+![The Game](https://i.imgur.com/zCwc8KC.png)
+In this game the player controls a spaceship and is tasked with collecting 5 orbs, while shooting their way through hordes of enemy spaceships.
 # Features
 * Background music and randomized sound effects for shooting missiles and destroying enemies.
 * Highscore tracking using the browser's local storage.
@@ -14,6 +13,10 @@ This game was created for General Assembly’s project one. It was a solo projec
 ## Demo
  
 SPACE GAME can be experienced [here](https://bit.ly/3t9OQh1).
+ 
+## Brief 
+* The player should be able to clear at least one board.
+* The player's score should be displayed at the end of the game.
  
 ## Skills
 JavaScript, HTML, CSS.
@@ -33,7 +36,7 @@ const cells = []
  
 ```
  
-Created an object `levelBuildingBlock` where every value corresponds to a CSS class in the main.css folder. The idea here is to make it easier for me to keep track of variables I used to build the level.
+I created an object `levelBuildingBlock` where every value corresponds to a CSS class in the main.css folder. The idea here is to make it easier for me to keep track of variables I used to build the level.
  
 ```javascript
 const levelBuildingBlock = {
@@ -277,7 +280,7 @@ const playerActions = (key) => {
  }
  ```
  
- Based on the direction the player sprite is facing when the `fire` key is pressed. A missile will appear on the block adjacent to the player's ship's nose, if there isn't a wall occupying this block. The missile will continue on the same trajectory until it occupies the same block as a wall or an enemy.
+Based on the direction the player sprite is facing when the `fire` key is pressed, a missile will appear on the block adjacent to the player's ship's nose, if there isn't a wall occupying this block. The missile will continue on the same trajectory until it occupies the same block as a wall or an enemy.
  
  
  
@@ -319,6 +322,10 @@ Some of the interesting challenges I faced during development:
  
 ### Wins
 My biggest wins:
+* Using player `isFacing` information, feeding that into the missile class to determine in which direction the missile should go.
+* The amount of features I was able to implement into the project in such a short time was a great confidence booster.
+ 
+### Key Learnings
 * I improved my understanding on how classes and their methods can be used in a real project.
 * Solidified DOM manipulation using vanilla JavaScript.
 * Seeing the value of clean DRY Code.
